@@ -1,12 +1,15 @@
 'use client'
 import { motion } from "framer-motion"
 import { PinContainer } from "./ui/3d-pin"
-import Image from "next/image"
+import { TextHoverEffect } from "./ui/text-hover-effect";
 export default function About() {
     return (
-        <div className="relative  overflow-hidden bg-gradient-to-tr from-gray-700 via-gray-900 to-black py-24 sm:py-32">
-            <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-purple-500 rounded-full opacity-50 -z-30 blur-2xl" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500 rounded-full opacity-30 -z-30 blur-2xl" />
+        
+        <div className="relative overflow-hidden bg-gradient-to-tr from-gray-700 via-gray-900 to-black py-24 sm:py-32" >
+            
+            <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-purple-500 rounded-full opacity-50 z-30 blur-2xl" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500 rounded-full opacity-30 z-30 blur-2xl" />
+            
 
             <div className="mx-auto max-w-5xl px-6 lg:px-8 items-center">
                 <motion.div 
@@ -25,17 +28,18 @@ export default function About() {
                         Hi, I’m Boxuan Chen! A sophomore majoring in Software Engineering, passionate about full-stack development.
                     </p>
                 </motion.div>
-
+               
                 <div className="mt-16 flex flex-wrap justify-center gap-8">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                    >
+                    > 
                         <PinContainer
                             title="Linkedin site"
                             href="https://www.linkedin.com/in/boxuan-chen-498886303"
                         >
+                        
                             <div className="flex flex-col p-4 tracking-tight text-slate-100/50 w-[20rem] h-[20rem] bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
                                 <h3 className="font-bold text-xl text-white">
                                     My Linkedin
@@ -51,6 +55,7 @@ export default function About() {
 />
                             </div>
                         </PinContainer>
+                     
                     </motion.div>
 
                     <motion.div
@@ -110,10 +115,19 @@ export default function About() {
 />
                             </div>
                         </PinContainer>
+
+                        
                     </motion.div>
    
+                   
+
                 </div>
-            </div>
+                
+            </div> 
+            <div className="mx-auto mt-10 w-80 h-40 flex items-center justify-center">
+    <TextHoverEffect text="BOXUAN" />
+</div>
         </div>
+       
     )
 }
