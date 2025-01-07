@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -19,22 +19,27 @@ const Cursor = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-6 h-6 rounded-full bg-indigo-500 opacity-0.3 pointer-events-none z-50"
+      className="fixed top-0 left-0 w-6 h-6 rounded-full bg-indigo-500 opacity-3 pointer-events-none z-[9999] overflow-visible "
       style={{
-        x: cursorPosition.x, 
+        x: cursorPosition.x,
         y: cursorPosition.y,
       }}
       animate={{
-        x: cursorPosition.x - 16,
-        y: cursorPosition.y - 16,
+        x: cursorPosition.x - 10,
+        y: cursorPosition.y - 10,
       }}
       transition={{
         type: "spring",
         stiffness: 600,
         damping: 30,
+        duration: 0,
       }}
     />
   );
+};
+
+export default Cursor;
+
 };
 
 export default Cursor;
