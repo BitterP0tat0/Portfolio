@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <motion.nav
       aria-label="Global"
-      className="mx-auto flex max-w-100% items-center justify-between p-6 lg:px-8 bg-gradient-to-b from-gray-400 to-slate-900 sticky"
+      className="mx-auto flex max-w-100% items-center justify-between p-6 lg:px-8 bg-gradient-to-b from-gray-400 to-slate-900 sticky top-0 border-r-transparent z-[990]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -17,14 +17,12 @@ export default function Nav() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.2 }}
       >
-        <a href="#" className="-m-1.5 p-1.5 left-0">
-          <span className="sr-only">My Name</span>
-          <img
-            alt="MY LOGO"
-            src="/image/Myself.webp"
-            className="h-9 w-auto rounded-2xl"
-          />
-        </a>
+        <span className="sr-only">My Name</span>
+        <img
+          alt="MY LOGO"
+          src="/image/Myself.webp"
+          className="h-9 w-auto rounded-2xl hover:scale-110"
+        />
       </motion.div>
 
       <motion.div
@@ -40,7 +38,7 @@ export default function Nav() {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.5 }}
           >
-            <Link href="/about" className="text-gray-900 font-medium">
+            <Link href="/" className="text-gray-900 font-medium">
               Home
             </Link>
           </motion.li>
@@ -50,7 +48,7 @@ export default function Nav() {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Link href="/about" className="text-gray-900 font-medium">
+            <Link href="/myself" className="text-gray-900 font-medium">
               About
             </Link>
           </motion.li>
@@ -60,17 +58,8 @@ export default function Nav() {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3, delay: 0.1 }}
           >
-            <a
-              href="/about"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("features")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="text-gray-900 font-medium"
-            >
-              Features
+            <a href="/contact" className="text-gray-900 font-medium">
+              Contact
             </a>
           </motion.li>
         </ul>

@@ -4,41 +4,44 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-  "/image/Linkedin.svg",
-  "/image/Insta.svg",
-  "/image/Linkedin.svg",
+  "/image/bake.png",
+  "/image/camera.png",
+  "/image/games.png",
+  "/image/listening.png",
+  "/image/movie.png",
 ];
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState<"left" | "right">("right");
+
   const nextSlide = () => {
+    setDirection("right");
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    }, 3000);
-    if (currentIndex > images.length - 1) {
-      setCurrentIndex(0);
-    }
-
-    return () => clearInterval(interval);
-    [currentIndex];
-  });
-
   const prevSlide = () => {
+    setDirection("left");
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection("right");
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
       className="carousel-container"
       style={{
         position: "relative",
-        width: "600px",
+        width: "300px",
         height: "300px",
         overflow: "hidden",
       }}
@@ -48,11 +51,17 @@ const Carousel = () => {
           key={images[currentIndex]}
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: direction === "right" ? 100 : -100 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
+          exit={{ opacity: 0, x: direction === "right" ? -100 : 100 }}
           transition={{ duration: 0.5 }}
-          style={{ position: "absolute", width: "100%", height: "100%" }}
+          style={{
+            position: "absolute",
+            width: "50%",
+            height: "50%",
+            right: "60px",
+            top: "70px",
+          }}
         />
       </AnimatePresence>
 
@@ -61,13 +70,13 @@ const Carousel = () => {
         style={{
           position: "absolute",
           top: "50%",
-          left: "10px",
+          left: "-20px",
           transform: "translateY(-50%)",
           zIndex: 10,
           backgroundColor: "transparent",
           color: "white",
           border: "none",
-          padding: "10px",
+          padding: "20px",
           cursor: "pointer",
         }}
       >
@@ -79,13 +88,13 @@ const Carousel = () => {
         style={{
           position: "absolute",
           top: "50%",
-          right: "10px",
+          right: "-20px",
           transform: "translateY(-50%)",
           zIndex: 10,
           backgroundColor: "transparent",
           color: "white",
           border: "none",
-          padding: "10px",
+          padding: "20px",
           cursor: "pointer",
         }}
       >

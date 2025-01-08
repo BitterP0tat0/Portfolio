@@ -1,5 +1,5 @@
 import Nav from "@/Components/Nav";
-import About from "@/Components/About";
+import Contact from "@/Components/Contact";
 import Cursor from "@/Components/Cursor";
 
 export default function Page() {
@@ -7,7 +7,7 @@ export default function Page() {
     <div className="bg-white dark:bg-gray-800">
       <Nav></Nav>
 
-      <About></About>
+      <Contact />
       <Cursor></Cursor>
     </div>
   );

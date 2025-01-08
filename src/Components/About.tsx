@@ -70,9 +70,8 @@ export default function About() {
                   Github site
                 </h3>
                 <div className="text-base !m-0 !p-0 font-normal">
-                  <span className="text-slate-500 text-sm">
-                    Check my github for seeing the learning progress of a Junior
-                    Programmer
+                  <span className="text-slate-500 text-lg">
+                    Come and see the learning progress of a Junior Programmer
                   </span>
 
                   <img
