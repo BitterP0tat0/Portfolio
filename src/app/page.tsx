@@ -9,6 +9,7 @@ export default function Page() {
 
       <About></About>
       <Cursor></Cursor>
+      
     </div>
   );
 }
