@@ -11,8 +11,8 @@ export const BackgroundBeamsWithCollision = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const parentRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null); // 修改类型为 HTMLDivElement | null
+  const parentRef = useRef<HTMLDivElement | null>(null); // 修改类型为 HTMLDivElement | null
 
   const beams = [
     {
@@ -101,8 +101,8 @@ export const BackgroundBeamsWithCollision = ({
 const CollisionMechanism = React.forwardRef<
   HTMLDivElement,
   {
-    containerRef: React.RefObject<HTMLDivElement>;
-    parentRef: React.RefObject<HTMLDivElement>;
+    containerRef: React.RefObject<HTMLDivElement | null>; // 修改类型为 HTMLDivElement | null
+    parentRef: React.RefObject<HTMLDivElement | null>; // 修改类型为 HTMLDivElement | null
     beamOptions?: {
       initialX?: number;
       translateX?: number;
@@ -116,7 +116,7 @@ const CollisionMechanism = React.forwardRef<
     };
   }
 >(({ parentRef, containerRef, beamOptions = {} }, ref) => {
-  const beamRef = useRef<HTMLDivElement>(null);
+  const beamRef = useRef<HTMLDivElement | null>(null); // 修改类型为 HTMLDivElement | null
   const [collision, setCollision] = useState<{
     detected: boolean;
     coordinates: { x: number; y: number } | null;
