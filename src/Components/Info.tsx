@@ -22,10 +22,7 @@ export default function Info() {
               everything from front-end to back-end system design and
               development. I am eager to learn and explore new technologies,
               aiming to contribute to the tech world through continuous practice
-              and innovation while realizing my personal goals.
-            </p>
-            <p className="text-lg text-white tracking-wide transition-all duration-300 ease-in-out hover:text-cyan-400 hover:opacity-80 hover:transform hover:scale-95">
-              I strongly believe that technology has the power to transform
+              and innovation while realizing my personal goals.I strongly believe that technology has the power to transform
               lives and create a better future. My journey in software
               engineering is driven by a desire to build meaningful applications
               that solve real-world problems and bring value to people.
@@ -35,6 +32,8 @@ export default function Info() {
               learning, I aim to leave a lasting impact in the field of
               technology.
             </p>
+              
+         
           </div>
 
           <section className="text-center mt-20">
