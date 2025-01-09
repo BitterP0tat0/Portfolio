@@ -1,7 +1,6 @@
-"use client";
-
-import { useForm } from "react-hook-form"; 
+import { useForm } from "react-hook-form/dist/react-hook-form";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 
 export default function ContactForm() {
   const {
@@ -11,7 +10,16 @@ export default function ContactForm() {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    emailjs.send("service_tnuiu9k", "template_kr8vquk", data).then(
+      (response) => {
+        console.log("Message sent successfully:", response);
+        alert("Your message has been sent!");
+      },
+      (error) => {
+        console.log("Failed to send message:", error);
+        alert("Something went wrong. Please try again.");
+      }
+    );
   };
 
   return (
@@ -63,7 +71,10 @@ export default function ContactForm() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium mb-2"
+                  >
                     First Name
                   </label>
                   <input
@@ -71,14 +82,21 @@ export default function ContactForm() {
                     id="firstName"
                     placeholder="Your first name"
                     className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
-                    {...register("firstName", { required: "First name is required" })}
+                    {...register("firstName", {
+                      required: "First name is required",
+                    })}
                   />
                   {errors.firstName && (
-                    <p className="text-red-500 text-sm mt-1">{errors.firstName.message?.toString()}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.firstName.message?.toString()}
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Last Name
                   </label>
                   <input
@@ -86,17 +104,24 @@ export default function ContactForm() {
                     id="lastName"
                     placeholder="Your last name"
                     className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
-                    {...register("lastName", { required: "Last name is required" })}
+                    {...register("lastName", {
+                      required: "Last name is required",
+                    })}
                   />
                   {errors.lastName && (
-                    <p className="text-red-500 text-sm mt-1">{errors.lastName.message?.toString()}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.lastName.message?.toString()}
+                    </p>
                   )}
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Email
                   </label>
                   <input
@@ -107,11 +132,16 @@ export default function ContactForm() {
                     {...register("email", { required: "Email is required" })}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email.message?.toString()}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.email.message?.toString()}
+                    </p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="number" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="number"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Phone
                   </label>
                   <input
@@ -119,16 +149,23 @@ export default function ContactForm() {
                     id="number"
                     placeholder="+49 xxx"
                     className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
-                    {...register("phone", { required: "Phone number is required" })}
+                    {...register("phone", {
+                      required: "Phone number is required",
+                    })}
                   />
                   {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">{errors.phone.message?.toString()}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.phone.message?.toString()}
+                    </p>
                   )}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -139,7 +176,9 @@ export default function ContactForm() {
                   {...register("message", { required: "Message is required" })}
                 />
                 {errors.message && (
-                  <p className="text-red-500 text-sm mt-1">{errors.message.message?.toString()}</p>
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.message.message?.toString()}
+                  </p>
                 )}
               </div>
 
