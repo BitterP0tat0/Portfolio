@@ -103,12 +103,9 @@ export default function About() {
           </motion.div>
         </div>
       </div>
-      <div className="mx-auto mt-10 w-60 sm:w-80 h-20 sm:h-40 flex items-center justify-center">
-  <TextHoverEffect text="BOXUAN" />
-</div>
-
-
-
+      <div className="mx-auto mt-10 w-60 sm:w-80 h-20 sm:h-40 flex items-center justify-center lg:">
+        <TextHoverEffect text="BOXUAN" />
+      </div>
     </div>
   );
 }
