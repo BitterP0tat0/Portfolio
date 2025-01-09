@@ -103,15 +103,11 @@ export default function About() {
           </motion.div>
         </div>
       </div>
-      <div className="mx-auto mt-10 w-60 sm:w-80 h-20 sm:h-40 flex items-center justify-center lg:hidden">
+      <div className="mx-auto mt-10 w-60 sm:w-80 h-20 sm:h-40 flex items-center justify-center">
   <TextHoverEffect text="BOXUAN" />
 </div>
 
-<div className="mx-auto mt-10 w-60 sm:w-80 h-20 sm:h-40 flex items-center justify-center md:hidden">
-  <h1 className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
-    Boxuan
-  </h1>
-</div>
+
 
     </div>
   );
