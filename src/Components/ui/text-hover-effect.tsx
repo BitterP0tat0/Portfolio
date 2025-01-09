@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+/* eslint-disable prefer-const */
 
 export const TextHoverEffect = ({
   text,

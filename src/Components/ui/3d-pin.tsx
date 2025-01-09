@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+/* eslint-disable prefer-const */
+
 export const PinContainer = ({
   children,
   title,
