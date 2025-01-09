@@ -130,7 +130,7 @@ export default function ContactForm() {
                   <input
                     type="email"
                     id="email"
-                    placeholder="myemail"
+                    placeholder="Email"
                     className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
                     {...register("email", { required: "Email is required" })}
                   />
@@ -150,7 +150,7 @@ export default function ContactForm() {
                   <input
                     type="tel"
                     id="number"
-                    placeholder="+49 xxx"
+                    placeholder="+49 196 xxx xxx"
                     className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
                     {...register("phone", {
                       required: "Phone number is required",
