@@ -8,7 +8,7 @@ export default function Info() {
       <BackgroundBeamsWithCollision className="bg-gradient-to-tr from-gray-700 via-gray-900 to-black opacity-80 my-auto h-screen ">
         <div className="absolute bg-cyan-300 blur-lg w-20 h-20 rounded "></div>
 
-        <div className="flex flex-wrap absolute justify-center top-0 content-center">
+        <div className="flex flex-wrap absolute justify-center top-0 content-center ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl">
             Hello, I am Boxuan !
           </h1>
