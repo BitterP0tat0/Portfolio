@@ -1,4 +1,5 @@
-import { useForm } from "react-hook-form/dist/react-hook-form";
+"use client";
+import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 
@@ -10,16 +11,18 @@ export default function ContactForm() {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    emailjs.send("service_tnuiu9k", "template_kr8vquk", data).then(
-      (response) => {
-        console.log("Message sent successfully:", response);
-        alert("Your message has been sent!");
-      },
-      (error) => {
-        console.log("Failed to send message:", error);
-        alert("Something went wrong. Please try again.");
-      }
-    );
+    emailjs
+      .send("service_tnuiu9k", "template_kr8vquk", data, "-MjWEwcYrKTa02ybk")
+      .then(
+        (response) => {
+          console.log("Message sent successfully:", response);
+          alert("Your message has been sent!");
+        },
+        (error) => {
+          console.log("Failed to send message:", error);
+          alert("Something went wrong. Please try again.");
+        }
+      );
   };
 
   return (
