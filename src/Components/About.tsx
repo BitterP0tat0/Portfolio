@@ -6,10 +6,12 @@ import { TextHoverEffect } from "./ui/text-hover-effect";
 export default function About() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-tr from-gray-700 via-gray-900 to-black py-16 sm:py-24">
+      {/* Background gradient circles */}
       <div className="absolute top-1/3 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-purple-500 rounded-full opacity-50 z-30 blur-2xl" />
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-teal-500 rounded-full opacity-30 z-30 blur-2xl" />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 items-center">
+        {/* Heading animation */}
         <motion.div
           className="max-w-lg sm:max-w-2xl text-center mx-auto"
           initial={{ y: -50, opacity: 0 }}
@@ -31,7 +33,9 @@ export default function About() {
           </p>
         </motion.div>
 
+        {/* Pin containers with motion effects */}
         <div className="mt-12 sm:mt-16 flex flex-wrap justify-center gap-6 sm:gap-8">
+          {/* Linkedin */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -55,6 +59,7 @@ export default function About() {
             </PinContainer>
           </motion.div>
 
+          {/* Github */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -78,6 +83,7 @@ export default function About() {
             </PinContainer>
           </motion.div>
 
+          {/* Instagram */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -103,6 +109,8 @@ export default function About() {
           </motion.div>
         </div>
       </div>
+
+      {/* Hover effect for name */}
       <div className="mx-auto mt-10 w-60 sm:w-80 h-20 sm:h-40 flex items-center justify-center z-[998]">
         <TextHoverEffect text="BOXUAN" />
       </div>
