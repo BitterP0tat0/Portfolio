@@ -19,7 +19,7 @@ const Cursor = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-6 h-6 rounded-full bg-indigo-500 opacity-3 pointer-events-none z-[9999] overflow-visible "
+      className="fixed top-0 left-0 w-6 h-6 rounded-full bg-indigo-500 opacity-3 pointer-events-none z-[9999] overflow-visible cursor-none"
       style={{
         x: cursorPosition.x,
         y: cursorPosition.y,

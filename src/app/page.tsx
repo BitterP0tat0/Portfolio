@@ -4,7 +4,7 @@ import Cursor from "@/Components/Cursor";
 
 export default function Page() {
   return (
-    <div className="bg-white dark:bg-gray-800">
+    <div className="bg-white dark:bg-gray-800 cursor-none">
       <Nav></Nav>
 
       <About></About>

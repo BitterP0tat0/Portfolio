@@ -1,44 +1,37 @@
 "use client";
 
-import { useState } from "react";
-import { animate, motion } from "framer-motion";
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+import { useForm } from "react-hook-form"; 
+import { motion } from "framer-motion";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
+export default function ContactForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data: any) => {
+    console.log(data);
   };
 
   return (
-    <section className="py-20 bg-gradient-to-t from-gray-700 via-gray-900 to-black mx-auto my-auto h-screen">
+    <section className="py-20 bg-gradient-to-t from-gray-700 via-gray-900 to-black mx-auto my-auto h-screen text-white">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Left Column - Contact Info */}
           <div>
             <motion.h2
-              className="text-3xl font-bold mb-6 text-slate-200"
+              className="text-3xl font-bold mb-6"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
             >
-              Contact Us Today for
+              Contact me for
               <br />
-              Personalized Support
+              hiring me or collab
               <br />
-              and Assistance
+              with me
             </motion.h2>
-            <p className="text-secondary mb-8">
-              Lorem ipsum dolor sit amet consectetur. Convallis est urna
-              adipiscing fringilla nulla diam lorem non mauris.
-            </p>
-
+            <p className="text-secondary mb-8">Contact me via email</p>
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -57,121 +50,105 @@ export default function ContactForm() {
                   </svg>
                 </div>
                 <a
-                  href="mailto:contact@domain.com"
+                  href="mailto:a251080262@gmail.com"
                   className="text-primary hover:text-primary-hover"
                 >
-                  contact@domain.com
+                  a251080262@gmail.com
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium text-secondary mb-2"
-                  >
+                  <label htmlFor="firstName" className="block text-sm font-medium mb-2">
                     First Name
                   </label>
                   <input
                     type="text"
                     id="firstName"
                     placeholder="Your first name"
-                    className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary"
-                    value={formData.firstName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, firstName: e.target.value })
-                    }
+                    className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
+                    {...register("firstName", { required: "First name is required" })}
                   />
+                  {errors.firstName && (
+                    <p className="text-red-500 text-sm mt-1">{errors.firstName.message?.toString()}</p>
+                  )}
                 </div>
                 <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-secondary mb-2"
-                  >
+                  <label htmlFor="lastName" className="block text-sm font-medium mb-2">
                     Last Name
                   </label>
                   <input
                     type="text"
                     id="lastName"
                     placeholder="Your last name"
-                    className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary"
-                    value={formData.lastName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, lastName: e.target.value })
-                    }
+                    className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
+                    {...register("lastName", { required: "Last name is required" })}
                   />
+                  {errors.lastName && (
+                    <p className="text-red-500 text-sm mt-1">{errors.lastName.message?.toString()}</p>
+                  )}
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-secondary mb-2"
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
                     Email
                   </label>
                   <input
                     type="email"
                     id="email"
-                    placeholder="email@domain.com"
-                    className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    placeholder="myemail"
+                    className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
+                    {...register("email", { required: "Email is required" })}
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email.message?.toString()}</p>
+                  )}
                 </div>
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-secondary mb-2"
-                  >
+                  <label htmlFor="number" className="block text-sm font-medium mb-2">
                     Phone
                   </label>
                   <input
                     type="tel"
-                    id="phone"
-                    placeholder="+91 22BXXXX"
-                    className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    id="number"
+                    placeholder="+49 xxx"
+                    className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
+                    {...register("phone", { required: "Phone number is required" })}
                   />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-1">{errors.phone.message?.toString()}</p>
+                  )}
                 </div>
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-secondary mb-2"
-                >
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={6}
                   placeholder="Your message"
-                  className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary text-black"
+                  {...register("message", { required: "Message is required" })}
                 />
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-1">{errors.message.message?.toString()}</p>
+                )}
               </div>
 
-              <button
+              <motion.button
                 type="submit"
-                className="bg-primary text-white px-8 py-3 rounded-md hover:bg-primary-hover transition-colors"
+                className="bg-primary text-black px-8 py-3 rounded-md hover:bg-primary-hover transition-colors bg-white hover:scale-105"
               >
                 Send message
-              </button>
+              </motion.button>
             </form>
           </div>
         </div>

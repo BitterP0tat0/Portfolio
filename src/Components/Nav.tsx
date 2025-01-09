@@ -38,7 +38,7 @@ export default function Nav() {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.5 }}
           >
-            <Link href="/" className="text-gray-900 font-medium">
+            <Link href="/" className="text-gray-900 font-semibold">
               Home
             </Link>
           </motion.li>
@@ -48,7 +48,7 @@ export default function Nav() {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Link href="/myself" className="text-gray-900 font-medium">
+            <Link href="/myself" className="text-gray-900 font-semibold">
               About
             </Link>
           </motion.li>
@@ -58,7 +58,7 @@ export default function Nav() {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3, delay: 0.1 }}
           >
-            <a href="/contact" className="text-gray-900 font-medium">
+            <a href="/contact" className="text-gray-900 font-semibold">
               Contact
             </a>
           </motion.li>
