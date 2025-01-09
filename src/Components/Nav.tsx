@@ -34,7 +34,7 @@ export default function Nav() {
           className="inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:text-white focus:outline-none md:hidden"
           aria-label="Toggle navigation"
         >
-          <span className="material-icons">menu</span>
+          <span className="material-icons">Menu</span>
         </button>
 
         <motion.div
