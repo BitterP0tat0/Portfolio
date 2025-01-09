@@ -2,7 +2,6 @@
 
 import { BackgroundBeamsWithCollision } from "@/Components/ui/background-beams-with-collision";
 import Carousel from "./Carousel";
-import { Vortex } from "./ui/vortex";
 export default function Info() {
   return (
     <div className=" mt-auto my-auto relative overflow-hidden bg-gradient-to-tr from-gray-700 via-gray-900 to-black py-16 sm:py-20 h-[100vh]">
@@ -49,4 +48,3 @@ export default function Info() {
     </div>
   );
 }
-
