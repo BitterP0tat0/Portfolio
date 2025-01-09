@@ -31,14 +31,14 @@ export const TextHoverEffect = ({
   return (
     <svg
       ref={svgRef}
-      width="80%"
-      height="80%"
-      viewBox="0 300 100"
+      width="100%"
+      height="100%"
+      viewBox="0 100 100"
       xmlns="http://www.w3.org/2000/svg"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-      className="select-none"
+      className="select-none mx-auto z-[998]"
     >
       <defs>
         <linearGradient
